@@ -140,7 +140,7 @@ internal static class PluginCompiler
                 var reference = type switch
                 {
                     "name" => MetadataReference.CreateFromFile(Assembly.Load(value).Location),
-                    "file" => MetadataReference.CreateFromFile(value),
+                    "file" => MetadataReference.CreateFromFile(Assembly.LoadFrom(value).Location),
                     _ => null
                 };
 
